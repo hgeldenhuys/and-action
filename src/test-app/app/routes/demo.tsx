@@ -9,7 +9,7 @@ import {
 } from "~/custom-actions/types";
 import { actions } from "~/custom-actions/foo.api.server";
 
-import { useAjvGuard } from "../../../and_action/use-ajv-guard";
+import { useAjvGuard } from "../../../and-action/use-ajv-guard";
 
 export const meta: MetaFunction = () => {
   return [

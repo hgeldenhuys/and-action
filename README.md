@@ -1,5 +1,5 @@
 # And Action 🎬
-## Advanced Action router for Remix.run 💿
+## Advanced API router for Remix.run, with advanced Intent Form Component and ActionData Guards 💿
 
 ### Use case
 When you want to share actions between routes 

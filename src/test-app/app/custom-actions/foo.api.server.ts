@@ -1,7 +1,7 @@
-import { ResourceApi } from "../../../and_action/types";
+import { ResourceApi } from "../../../and-action/types";
 import { FooContext, FooResponse, FooIntents } from "~/custom-actions/types";
 import { foo } from "~/custom-actions/foo.methods";
-import { createActionRoutes } from "../../../and_action/server";
+import { createActionRoutes } from "../../../and-action/server";
 
 export const fooApiServer: ResourceApi<FooIntents, FooContext, FooResponse> = {
   foo,

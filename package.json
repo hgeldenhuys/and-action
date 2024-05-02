@@ -26,6 +26,11 @@
     "dist"
   ],
   "author": "Herman Geldenhuys",
+  "repository": {
+    "url": "https://github.com/hgeldenhuys/and-action",
+    "type": "git",
+    "directory": "src/and-action"
+  },
   "scripts": {
     "build": "tsc --project tsconfig.json"
   },

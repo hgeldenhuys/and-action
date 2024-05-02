@@ -1,4 +1,4 @@
-import { ActionFunctionArgs, TypedResponse } from "@remix-run/node";
+import { ActionFunctionArgs } from "@remix-run/node";
 import { IntentFormComponent } from "./IntentForm";
 
 export type ActionIntent = string;

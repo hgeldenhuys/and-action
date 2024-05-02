@@ -1,4 +1,4 @@
-import { DataResponse } from "../../../and_action/types";
+import { DataResponse } from "../../../and-action/types";
 import { SuperJSONResult } from "superjson";
 
 export type FooIntents = "foo" | "bar" | "foo.bar";

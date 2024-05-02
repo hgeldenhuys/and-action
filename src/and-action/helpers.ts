@@ -1,5 +1,5 @@
 import { deserialize, SuperJSONResult } from "superjson";
-import { DataRecord } from "./types.js";
+import { DataRecord } from "./types";
 import { Children, isValidElement, ReactElement, ReactNode } from "react";
 
 export function mergeFormDataWithJson(
