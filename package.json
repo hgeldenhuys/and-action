@@ -1,6 +1,6 @@
 {
   "name": "and-action",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "Action Router & Side-kick Form component for Remix apps",
   "type": "module",
   "main": "./dist/index.cjs",
