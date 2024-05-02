@@ -1,40 +1,60 @@
 {
-  "name": "remix-actions",
-  "private": true,
-  "sideEffects": false,
+  "name": "and-action",
+  "version": "0.1.15",
+  "description": "Action Router & Side-kick Form component for Remix apps",
   "type": "module",
-  "scripts": {
-    "build": "remix vite:build",
-    "dev": "remix vite:dev",
-    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "remix-serve ./build/server/index.js",
-    "typecheck": "tsc"
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "import": "./dist/index.js",
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/index.cjs",
+        "require": "./dist/index.cjs",
+        "default": "./dist/index.cjs",
+        "types": "./dist/index.d.cts"
+      },
+      "types": "./dist/index.d.ts"
+    }
   },
-  "dependencies": {
-    "@remix-run/node": "^2.9.1",
+  "files": [
+    "dist"
+  ],
+  "author": "Herman Geldenhuys",
+  "scripts": {
+    "build": "tsc --project tsconfig.json"
+  },
+  "keywords": [
+    "remix"
+  ],
+  "peerDependencies": {
     "@remix-run/react": "^2.9.1",
-    "@remix-run/serve": "^2.9.1",
-    "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "superjson": "^2.2.1",
+    "zod": "^3.0.0",
+    "ajv": "^8.13.0"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.9.1",
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.7.4",
-    "@typescript-eslint/parser": "^6.7.4",
-    "eslint": "^8.38.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "typescript": "^5.1.6",
-    "vite": "^5.1.0",
-    "vite-tsconfig-paths": "^4.2.1"
-  },
-  "engines": {
-    "node": ">=18.0.0"
+    "@babel/core": "^7.14.2",
+    "@babel/preset-typescript": "^7.13.0",
+    "@remix-run/node": "^2.0.1",
+    "@remix-run/react": "^2.0.1",
+    "@remix-run/serve": "^2.0.1",
+    "@remix-run/server-runtime": "^2.0.1",
+    "@types/prop-types": "^15.7.4",
+    "@types/react": "^18.x",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "eslint-plugin-import": "^2.22.1",
+    "prettier": "^3.2.5",
+    "react": "^18.x",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
   }
 }
