@@ -2,7 +2,7 @@ import {
   ApiAction,
   ApiResource,
   DataResponse,
-} from "../../../and-action/types";
+} from "../../../and-action/api/types";
 import { serialize, SuperJSONResult } from "superjson";
 import {
   FooContext,

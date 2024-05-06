@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+body {
+    @apply bg-gray-900 text-white;
+  @apply font-sans;
+  @apply p-4;
+  @apply sm:p-8;
+  @apply md:p-12;
+    @apply lg:p-16;
+    @apply xl:p-20;
+  @apply flex flex-col items-center justify-center;
+}

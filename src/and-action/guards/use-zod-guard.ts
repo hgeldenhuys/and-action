@@ -50,8 +50,17 @@ export function useZodGuard<T = any>(props: ZodGuardOptions<T>) {
   return useActionGuard<T>({
     validate: (val) => {
       console.log({ validate }, validate.safeParse(val).error);
-      return validate.safeParse(val).success;
+      const validated = validate.safeParse(val);
+      const error = validated.error?.flatten();
+      if (Array.isArray(error?.formErrors))
+        error.formErrors.forEach((error) => console.error(error));
+      if (Array.isArray(error?.fieldErrors))
+        error?.fieldErrors.forEach((error) => console.error(error));
+      return {
+        valid: validated.success,
+        payloadErrors: error?.formErrors,
+        fieldErrors: error?.fieldErrors,
+      };
     },
-    ignoreInvalid,
   });
 }

@@ -1,6 +1,7 @@
-import type { MetaFunction } from "@remix-run/node";
+import { LinksFunction, MetaFunction } from "@remix-run/node";
 import { Link, useActionData } from "@remix-run/react";
 import { SuperJSONResult } from "superjson";
+import { Button2 } from "~/components/button2";
 
 export const meta: MetaFunction = () => {
   return [
@@ -8,6 +9,8 @@ export const meta: MetaFunction = () => {
     { name: "description", content: "Welcome to Remix!" },
   ];
 };
+
+export const links: LinksFunction = () => [];
 
 export default function Index() {
   const actionData = useActionData() as
@@ -45,7 +48,11 @@ export default function Index() {
           </a>
         </li>
       </ul>
-      <Link to={"./demo"}>Demo</Link>
+      <Link to={"./demo"}>
+        <Button2>Demo</Button2>
+      </Link>
+
+      <ul className="divide-y divide-gray-200 bg-red-800">Test</ul>
     </div>
   );
 }

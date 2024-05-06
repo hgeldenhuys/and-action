@@ -1,7 +1,7 @@
-import { ResourceApi } from "../../../and-action/types";
+import { ResourceApi } from "../../../and-action/api/types";
 import { FooContext, FooResponse, FooIntents } from "~/custom-actions/types";
 import { foo } from "~/custom-actions/foo.methods";
-import { createActionRoutes } from "../../../and-action/server";
+import { createApiRoutes } from "../../../and-action/api/api.server";
 
 export const fooApiServer: ResourceApi<FooIntents, FooContext, FooResponse> = {
   foo,
@@ -9,6 +9,6 @@ export const fooApiServer: ResourceApi<FooIntents, FooContext, FooResponse> = {
   "foo.bar": async () => ({ data: { answer: "should be foo.bar" } }),
 };
 
-export const actions = createActionRoutes<FooIntents, FooContext, FooResponse>(
+export const actions = createApiRoutes<FooIntents, FooContext, FooResponse>(
   fooApiServer
 );

@@ -50,7 +50,32 @@ export function useAjvGuard<T = any>(props: AjvGuardOptions<T>) {
   const validate = ajv.compile(validationSchema);
 
   return useActionGuard<T>({
-    validate: (val) => validate(val) as boolean,
+    validate: (val) => {
+      const validated = validate(val);
+      const error = validate.errors;
+      if (Array.isArray(error)) error.forEach((error) => console.error(error));
+      const formErrors: string[] = [];
+      const fieldErrors:
+        | Record<string | number | symbol, string[] | undefined>
+        | undefined = error?.reduce(
+        (acc, error) => {
+          if (error.dataPath) {
+            const field = error.dataPath.slice(1);
+            const fieldError = acc[field] || [];
+            if (error.message) fieldError.push(error.message);
+            acc[field] = fieldError;
+          }
+          return acc;
+        },
+        {} as Record<string | number | symbol, string[] | undefined>,
+      );
+      return {
+        valid: !!validated,
+        data: val,
+        fieldErrors,
+        payloadErrors: formErrors,
+      };
+    },
     ignoreInvalid,
   });
 }

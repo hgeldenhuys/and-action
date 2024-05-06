@@ -1,21 +1,21 @@
-import { DataResponse } from "../../../and-action/types";
+import { DataResponse } from "../../../and-action/api/types";
 import { SuperJSONResult } from "superjson";
 
 export type FooIntents = "foo" | "bar" | "foo.bar";
 
 export type FooContext = {
-  aNumber: number;
-  aDate: Date;
-  aNull: null;
-  anUndefined: undefined;
-  aBoolean: boolean;
-  anArray: [1, 2, 3];
-  anObject: {
+  Number: number;
+  Date: Date;
+  Null: null;
+  Undefined: undefined;
+  Boolean: boolean;
+  Array: [1, 2, 3];
+  Object: {
     foo: {
       bar: string;
     };
   };
-  aString: string;
+  String: string;
 };
 
 export type FooDataResponse = DataResponse<{
@@ -26,16 +26,16 @@ export type FooDataResponse = DataResponse<{
 export type FooResponse = Response | FooDataResponse;
 
 export const fooDefaults: FooContext = {
-  aNumber: 1,
-  aDate: new Date("2021-01-01T00:00:00Z"),
-  aNull: null,
-  anUndefined: undefined,
-  aBoolean: true,
-  anArray: [1, 2, 3],
-  anObject: {
+  Number: 1,
+  Date: new Date("2021-01-01T00:00:00Z"),
+  Null: null,
+  Undefined: undefined,
+  Boolean: true,
+  Array: [1, 2, 3],
+  Object: {
     foo: {
       bar: "baz",
     },
   },
-  aString: "foo",
+  String: "foo",
 };

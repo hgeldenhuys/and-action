@@ -2,19 +2,19 @@ import { SuperJSONResult } from "superjson";
 import {
   ResourceApi,
   ActionMethod,
-  ActionIntent,
+  ApiIntent,
   DataRecord,
-  DefaultActionResult,
+  DefaultApiResult,
   DataObject,
-} from "./types.js";
-import { mergeFormDataWithJson } from "./helpers.js";
+} from "./types";
+import { mergeFormDataWithJson } from "../helpers";
 import { ActionFunctionArgs, TypedResponse } from "@remix-run/node";
 
 export function routeActionBuilder<
-  ROUTES extends ActionIntent = ActionIntent,
+  ROUTES extends ApiIntent = ApiIntent,
   CONTEXT extends DataRecord = DataRecord,
   ACTIONS extends ResourceApi<ROUTES, CONTEXT> = ResourceApi<ROUTES, CONTEXT>,
-  RESULT = DefaultActionResult,
+  RESULT = DefaultApiResult,
 >(intents: ACTIONS) {
   const action = async (
     actionArgs: ActionFunctionArgs,
@@ -53,8 +53,8 @@ export function routeActionBuilder<
   return action;
 }
 
-export function createActionRoutes<
-  ROUTE extends ActionIntent,
+export function createApiRoutes<
+  ROUTE extends ApiIntent,
   CONTEXT extends DataObject = DataObject,
   RESULT = TypedResponse<object>,
   ACTIONS extends ResourceApi<ROUTE, CONTEXT, RESULT> = ResourceApi<
